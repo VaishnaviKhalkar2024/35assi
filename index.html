@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <style>
+        .container{
+        width: fit-content;
+        margin: 50px auto;
+        position: relative;
+    }
+    .slide-img{
+            height: 400px;
+            width: 600px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .slide-action-icon{
+            height: 50px;
+            position: absolute;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .icon-next{
+            right: 10px;
+            top: 50%;
+        }
+
+        .icon-next:hover{
+            transform: scale(0.8) translateX(10px) ;
+        }
+        .icon-previous{
+            left: 10px;
+            top: 50%;
+        }
+        .icon-previous:hover{
+            transform: scale(0.8) translateX(-10px);
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <img src="./img/img1.jpg" alt="image" class="slide-img" id="slide-img">
+        <img src="./img/next-img.jpg" alt="next" onclick="next()" class="slide-action-icon icon-next">
+        <img src="./img/previ-img.png" alt="previous" onclick="previous()" class="slide-action-icon icon-previous">
+    </div>
+
+    <script>
+        const images =["./img/img1.jpg", "./img/img2.jpg", "./img/img3.jpg", "./img/img4.jpg", "./img/img5.jpg","./img/img6.jpg"]
+
+        let index = 0;
+        const slideImg = document.getElementById('slide-img');
+
+        function next(){
+            if(index < images.length -1)
+        {
+            index++;
+        }
+        else{
+            index = 0;
+        }
+        slideImg.src = images[index]
+
+        }
+
+        function previous(){
+            if(index > 0){
+                index--;
+            }
+            else{
+                index = images.length-1;
+            }
+            slideImg.src = images[index]
+        }
+        setInterval(next, 6000);
+</script>
+</body>
+</html>
+
+    </body>
+    </html>
